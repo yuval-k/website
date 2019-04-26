@@ -41,10 +41,12 @@ workflows:
   version: 2
   publish:
     jobs:
-      - test
+      - test:
+          filters:
+            branches:
+              ignore:
+                - master
       - publish:
-          requires:
-            - test
           filters:
             branches:
               only:
